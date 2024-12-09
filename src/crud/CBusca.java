@@ -4,7 +4,24 @@
  */
 package crud;
 
+import java.sql.SQLException;
+
 
 public class CBusca {
+    
+    private final CConsultas cnslt = new CConsultas();
+    private String consulta;
+    
+    
+   
+    
+     public String buscaCuenta(String curp, String contraseña) throws SQLException {
+    consulta = "SELECT id_cuenta " +
+               "FROM cuenta " +
+               "WHERE curp = '" + curp + "' " +
+               "AND contraseña = '" + contraseña + "';";
+    return cnslt.buscarValor(consulta);
+}
+    
     
 }
