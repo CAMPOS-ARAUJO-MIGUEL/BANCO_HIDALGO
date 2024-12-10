@@ -4,6 +4,8 @@
  */
 package ventanas;
 
+import crud.CBusca;
+import crud.CInserta;
 import javax.swing.JTextField;
 import utilitarios.CUtilitarios;
 
@@ -13,7 +15,23 @@ import utilitarios.CUtilitarios;
  */
 public class JFRegistro_cuenta extends javax.swing.JFrame {
     
-    
+      private final CBusca queryBusca1 = new CBusca();
+      private final CBusca queryBusca2 = new CBusca();
+      private final CBusca queryBusca3 = new CBusca();
+      private final CBusca queryBusca4 = new CBusca();
+      private final CBusca queryBusca5 = new CBusca();
+      private final CBusca queryBusca6 = new CBusca();
+      private final CBusca queryBusca7 = new CBusca();
+      private final CBusca queryBusca8 = new CBusca();
+      private final CBusca queryBusca9 = new CBusca();
+      private final CBusca queryBusca10 = new CBusca();
+      private final CBusca queryBusca11 = new CBusca();
+      
+      private final CInserta queryInserta1= new CInserta();
+      private final CInserta queryInserta2= new CInserta();
+      private final CInserta queryInserta3= new CInserta();
+      private final CInserta queryInserta4= new CInserta();
+      private final CInserta queryInserta5= new CInserta();
     
      private String regexnombre="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
      private String regexapellido_paterno="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
@@ -169,36 +187,36 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(232, 232, 232)
                         .addComponent(jLabel6))
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTNumeroInterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(JCBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel21)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTColonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                            .addGap(194, 194, 194)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTNumeroInterior, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(35, 35, 35)
-                            .addComponent(jLabel20)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTNumeroExterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jTCodigoPostal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTNumeroExterior, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(JCBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel21)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTColonia, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(20, 20, 20))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,59 +312,64 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(232, 232, 232)
                 .addComponent(jLabel62)
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel63)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
-                        .addComponent(jLabel64)
+                        .addComponent(jLabel61)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel65)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(JCBxTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel60)
+                        .addGap(35, 35, 35)
+                        .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel52)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel55)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTRfc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTRfc, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel52)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel56)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JCBxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel58)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JCBxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(88, 88, 88))
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel54)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel53)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel58)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JCBxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54))))
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel61)
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTCURP, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel60)
-                        .addGap(35, 35, 35)
-                        .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabel64)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTContrasena)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel65)
+                        .addGap(18, 18, 18)
+                        .addComponent(JCBxTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86))))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -413,21 +436,22 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addComponent(jButton1)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))
-                            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                                .addGap(275, 275, 275)
+                                .addComponent(jButton3)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,7 +475,10 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,10 +491,7 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -574,7 +598,221 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     &&  validaCampo(colonia, jTColonia, regexcolonia, "Ingrese su colonia", "La colonia solo puede tener un maximo de 100 caracteres ");
             
     }
+    
+    
+    public boolean verificaExisteCURP(String curp){
         
+        try {
+            
+         String resultado= queryBusca1.buscaCuenta2(curp);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un en el curp. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+    
+    
+       public boolean verificaExisteRFC(String rfc){
+        
+        try {
+            
+         String resultado= queryBusca8.buscaPersonaPorRfc(rfc);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en el rfc. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+       
+       
+       public boolean verificaExisteCorreo(String correo){
+        
+        try {
+            
+         String resultado= queryBusca9.buscaPersonaPorCorreo(correo);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en el correo. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+       
+            
+       public boolean verificaExisteTelefono(String telefono){
+        
+        try {
+            
+         String resultado= queryBusca10.buscaTelefonoPorNumero(numero);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en el numero. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+       
+         public boolean verificaExisteContrasena(String contrasena){
+        
+        try {
+            
+         String resultado= queryBusca11.buscaContrasena(contrasena);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en la contraseña. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+        
+    
+    
+    
+    public int insertaDireccion(String codigo_postal, String colonia, String num_interior, String num_exterior, String calle, String estado){ 
+       
+        int ultimoID;
+        try {
+             String idEstado=queryBusca2.buscaEstado(estado);  
+             int id_estado=Integer.parseInt(idEstado);
+             queryInserta1.insertaDireccion(codigo_postal, colonia, num_interior, num_exterior, calle, id_estado);
+             // ultimoID=queryBusca5.obtenerUltimoId();
+              ultimoID=queryBusca5.ultimoIdDireccion();
+            // return ultimoID;
+        } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("problema al insertar direccion. Por favor intente nuevamente.", "direccion");
+         return 0;
+    }
+    return ultimoID;
+    
+   }
+    
+     // public void insertaPersona(String nombre, String apellido_paterno, String apellido_materno, String rfc, String correo, String estadoCivil,int  id_direccion,String nacionalidad){ 
+      public int insertaPersona(String nombre, String apellido_paterno, String apellido_materno, String rfc, String correo, String estadoCivil,String nacionalidad){ 
+       
+           int id_direccion;
+           int ultimoID=0;
+        try {
+            
+           id_direccion=insertaDireccion(codigo_postal, colonia, numero_interior, numero_exterior, calle, estado);
+           
+            if (id_direccion==0) {//si el ultimo id es 0
+                System.out.println("id ultimo direccion:"+id_direccion);
+            }else{
+            
+             System.out.println("direccion id ultimo:"+id_direccion);
+             String idNacionalidad=queryBusca3.buscaNacionalidad(nacionalidad);  
+             int id_nacionalidad=Integer.parseInt(idNacionalidad);
+             
+             String idCivil=queryBusca4.buscaCivil(estadoCivil);
+             int id_civil=Integer.parseInt(idCivil);
+             
+                try {
+                     queryInserta2.insertaPersona1(nombre, apellido_paterno, apellido_materno, rfc, correo, id_civil, id_direccion, id_nacionalidad);
+                } catch (Exception e) {
+                    System.out.println("no se inserto persona por problamas");
+                }
+           
+            //ultimoID=queryBusca6.obtenerUltimoId();
+            
+            
+            ultimoID=queryBusca6.ultimoIdPersona();
+            System.out.println("PERSONA id ultimo:"+ultimoID);
+            }
+            
+     
+             
+        } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema al cargar a la persona. Por favor intente nuevamente.", "Error de conexión");
+        return 0;
+    }
+   
+    return ultimoID;
+   }
+      
+      
+      public void insertaDatos(String numero,String curp, String contraseña, String id_tipo_cuenta){
+          
+      
+      
+          try {
+          int id_persona;
+           int id_tipocuenta=0;
+          id_persona=insertaPersona(nombre, apellido_paterno, apellido_materno, rfc, correo, estadoCivil, nacionalidad);
+          
+          if (id_persona==0) {
+               System.out.println("persona id ultimo:"+id_persona);
+              
+          }else{
+              id_tipocuenta=queryBusca7.buscaTipoCuenta(id_tipo_cuenta);
+              
+              
+              
+              queryInserta4.insertaTelefono(numero, id_persona);
+              queryInserta5.insertaCuenta(curp, contraseña, id_persona, id_tipocuenta);
+              
+          
+          }
+              
+          } catch (Exception e) {System.out.println("erorrrrrrrr");
+          }
+      }
         
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // Cerrar la ventana actual (si es necesario)
@@ -621,7 +859,46 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+        try {
+            asignaValores();
+            
+            if (verificaExisteCURP(curp)) {
+                CUtilitarios.msg_adver("El CURP ya esta registrado cambielo ", "Registro curp");
+            }else{
+            
+                if (verificaExisteContrasena(contrasena)) {
+                     CUtilitarios.msg_adver("La contraseña ya esta registrada cambiela ", "Registro contraseña");
+                }else{
+                    
+                    if (verificaExisteCorreo(correo)) {
+                        CUtilitarios.msg_adver("El correo ya esta registrado cambielo ", "Registro correo"); 
+                    }else{
+                        
+                        if (verificaExisteRFC(rfc)) {
+                             CUtilitarios.msg_adver("El RFC ya esta registrado cambielo ", "Registro RFC"); 
+                        }else{
+                            
+                            if (verificaExisteTelefono(numero)) {
+                                CUtilitarios.msg_adver("El numero telefonico ya esta registrado cambielo ", "Registro Telefono"); 
+                            }else{
+                            insertaDatos(numero, curp, contrasena, tipoCuenta);
+                             CUtilitarios.msg("Se ha creado con exito su cuenta", "Registro cuenta"); 
+                            }
+                        }
+                    
+                    }
+                
+                }
+            
+            }
+            
+            
+            
+            
+        } catch (Exception e) {
+             CUtilitarios.msg_adver("Erro al enviar los datos", "encio datos"); 
+            System.out.println("NO SE INSERTARON DATOS");
+        }
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
