@@ -17,11 +17,19 @@ public class CInserta {
     return cnslt.inserta(consulta);
 }
      
-    public boolean insertaPersona(String nombre, String apellido_paterno, String apellido_materno, String rfc, String correo, int id_civil,int  id_direccion,int id_nacionalidad) throws SQLException {
+   public boolean insertaPersona(String nombre, String apellido_paterno, String apellido_materno, String rfc, String correo, int id_civil,int  id_direccion,int id_nacionalidad) throws SQLException {
     consulta = "INSERT INTO persona (nombre, apellido_paterno, apellido_materno, rfc, correo, id_civil, id_direccion, id_nacionalidad) \n" +
-                "VALUES ('" + nombre + "','" + apellido_paterno+ "','" + apellido_materno + "', '" + rfc + "', '" + correo + "','" + id_civil + "','" + id_direccion + "" + id_nacionalidad + ");";
+               "VALUES ('" + nombre + "','" + apellido_paterno+ "','" + apellido_materno + "','" + rfc + "','" + correo + "','" + id_civil + "','" + id_direccion + "," + id_nacionalidad + ");";
     return cnslt.inserta(consulta);
 }
+   
+   public boolean insertaPersona1(String nombre, String apellido_paterno, String apellido_materno, String rfc, String correo, int id_civil, int id_direccion, int id_nacionalidad) throws SQLException {
+    consulta = "INSERT INTO persona (nombre, apellido_paterno, apellido_materno, rfc, correo, id_civil, id_direccion, id_nacionalidad) \n" +
+               "VALUES ('" + nombre + "', '" + apellido_paterno + "', '" + apellido_materno + "', '" + rfc + "', '" + correo + "', " + id_civil + ", " + id_direccion + ", " + id_nacionalidad + ");";
+    return cnslt.inserta(consulta);
+}
+
+  
     
     public boolean insertaTelefono(String numero, int id_persona) throws SQLException {
     consulta = "INSERT INTO telefono (numero, id_persona) " +
