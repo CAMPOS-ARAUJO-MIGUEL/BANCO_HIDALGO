@@ -4,11 +4,30 @@
  */
 package ventanas;
 
+import javax.swing.JTextField;
+import utilitarios.CUtilitarios;
+
 /**
  *
  * @author HP
  */
 public class JFRegistro_cuenta extends javax.swing.JFrame {
+    
+    
+    
+     private String regexnombre="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
+     private String regexapellido_paterno="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
+     private String regexapellido_materno="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
+     private String regexrfc="^[A-Za-z0-9]{1,18}$";
+     private String regexnumero="^[0-9]{1,10}$";
+     private String regexcorreo="^[a-zA-Z0-9._%+-]{1,30}@gmail\\.com$";
+     private String regexcurp="^[A-Z]{4}\\d{6}[A-Z]{6}\\w{2}$";
+     private String regexcontrasena="^[\\S]{1,8}$";
+     private String regexcalle="^.{1,150}$";
+     private String regexcodigo_postal="^\\d{5}$";
+     private String regexnumero_interior="^\\d{1,5}$";
+     private String regexnumero_exterior="^\\d{1,5}$";
+     private String regexcolonia="^[A-Za-z0-9áéíóúÁÉÍÓÚüÜñÑ\\s]{1,100}$";
 
      private String nombre;
      private String apellido_paterno;
@@ -18,6 +37,9 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
      private String nacionalidad;
      private String numero;
      private String correo;
+     private String curp;
+     private String contrasena;
+     private String tipoCuenta;
      private String calle;
      private String codigo_postal;
      private String numero_interior;
@@ -77,8 +99,15 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         jTCorreo = new javax.swing.JTextField();
         JCBxNacionalidad = new javax.swing.JComboBox<>();
         JCBxEstadoCivil = new javax.swing.JComboBox<>();
+        jLabel63 = new javax.swing.JLabel();
+        jTCURP = new javax.swing.JTextField();
+        jLabel64 = new javax.swing.JLabel();
+        jTContrasena = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
+        JCBxTipoCuenta = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,14 +143,6 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel11.setText("Estado:");
 
-        jTNumeroExterior.setText("jTextField13");
-
-        jTNumeroInterior.setText("jTextField14");
-
-        jTCalle.setText("jTextField11");
-
-        jTCodigoPostal.setText("jTextField12");
-
         jLabel20.setText("Numero exterior:");
 
         JCBxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Estado de México", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas", "Ciudad de México", " " }));
@@ -133,7 +154,6 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel21.setText("Colonia");
 
-        jTColonia.setText("jTextField12");
         jTColonia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTColoniaActionPerformed(evt);
@@ -208,7 +228,6 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel52.setText("Nombre(s):");
 
-        jTNombre.setText("jTextField1");
         jTNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTNombreActionPerformed(evt);
@@ -217,15 +236,10 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel53.setText("Apellido Paterno:");
 
-        jTPaterno.setText("jTextField2");
-
         jLabel54.setText("Apellido Materno:");
-
-        jTMaterno.setText("jTextField3");
 
         jLabel55.setText("RFC:");
 
-        jTRfc.setText("jTextField4");
         jTRfc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTRfcActionPerformed(evt);
@@ -243,14 +257,12 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel62.setText("Datos de Identidad");
 
-        jTTelefono.setText("jTextField9");
         jTTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTTelefonoActionPerformed(evt);
             }
         });
 
-        jTCorreo.setText("jTextField10");
         jTCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTCorreoActionPerformed(evt);
@@ -261,13 +273,43 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         JCBxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo", "Unión libre", "Separado", "Conviviente", "Comprometido", " " }));
 
+        jLabel63.setText("CURP");
+
+        jLabel64.setText("Contraseña de la cuenta ");
+
+        jTContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTContrasenaActionPerformed(evt);
+            }
+        });
+
+        jLabel65.setText("Tipo de cuenta");
+
+        JCBxTipoCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crédito", "Débito" }));
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(232, 232, 232)
+                .addComponent(jLabel62)
+                .addContainerGap(254, Short.MAX_VALUE))
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel64)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel65)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(JCBxTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -305,10 +347,6 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(232, 232, 232)
-                .addComponent(jLabel62)
-                .addContainerGap(254, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +375,15 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                     .addComponent(jTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel60))
-                .addGap(58, 58, 58))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel63)
+                    .addComponent(jTCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel64)
+                    .addComponent(jTContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel65)
+                    .addComponent(JCBxTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         jButton1.setText("Regresar");
@@ -351,6 +397,13 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("CREAR CUENTA");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -368,9 +421,10 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton2)
-                                .addGap(154, 154, 154))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3))
                             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(41, Short.MAX_VALUE))
@@ -384,11 +438,13 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2))
+                    .addComponent(jButton3))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -434,6 +490,9 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         nacionalidad = (String)JCBxNacionalidad.getSelectedItem(); 
         numero= jTTelefono.getText();
         correo= jTCorreo.getText();
+        curp= jTCURP.getText();
+        contrasena= jTContrasena.getText();
+        tipoCuenta = (String)JCBxTipoCuenta.getSelectedItem(); 
         calle= jTCalle.getText();
         codigo_postal= jTCodigoPostal.getText();
         numero_interior= jTNumeroInterior.getText();
@@ -451,6 +510,8 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     JCBxNacionalidad.setSelectedIndex(0); // Selecciona el primer elemento del ComboBox
     jTTelefono.setText("");
     jTCorreo.setText("");
+    jTCURP.setText("");
+    jTContrasena.setText("");
     jTCalle.setText("");
     jTCodigoPostal.setText("");
     jTNumeroInterior.setText("");
@@ -464,6 +525,55 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     // Obtener los valores de los campos de texto
    
 }
+     
+     
+        public String devuelveCadena(JTextField campo, String regex) {
+        String cadena = null;
+        cadena = campo.getText();
+        if (cadena.isEmpty()) {
+            cadena = null;
+        } else if (cadena.matches(regex)) {
+            return cadena;
+        } else {
+            cadena = "NoValido";
+        }
+        return cadena;
+    }
+        
+        
+        
+        public boolean validaCampo(String campoTexto, JTextField campo, String regex, String mensajeVacio, String mensajeInvalido) {
+        boolean valida = true;
+        campoTexto = devuelveCadena(campo, regex);
+        if (campoTexto == null) {
+            CUtilitarios.msg_adver(mensajeVacio, "Registro terminal");
+            valida = false;
+        } else if (campoTexto.equals("NoValido")) {
+            CUtilitarios.msg_error(mensajeInvalido, "Registro terminal");
+            valida = false;
+        } else {
+            valida = true;
+        }
+        return valida;
+    }
+        
+    public boolean validaCampos() {
+    return validaCampo(nombre, jTNombre, regexnombre, "Ingrese sus nombres", "El nombre excede a mas de 30 caracteres")
+    &&  validaCampo(apellido_paterno, jTPaterno, regexapellido_paterno, "Ingrese su apellido paterno", "El apellido paterno excede a mas de 30 carcateres")
+    &&  validaCampo(apellido_materno, jTMaterno, regexapellido_materno, "Ingrese su apellido materno", "El apellido materno excede a mas de 30 carcateres")
+    &&  validaCampo(rfc, jTRfc, regexrfc, "Ingrese su RFC", "Es invalido el RFC por su extención o por el formato")
+    &&  validaCampo(numero, jTTelefono, regexnumero, "Ingrese un numero telefonico", "El numero solo puede agregar letras y un maximo de 10 digitos")  
+    &&  validaCampo(correo, jTCorreo, regexcorreo, "Ingrese su correo electronico", "El formato o la extencion del correo son incorrectos")  
+    &&  validaCampo(curp, jTCURP, regexcurp, "Ingrese su CURP", "El formato o la extencion del CURP son incorrectos")  
+    &&  validaCampo(contrasena, jTContrasena, regexcontrasena, "Ingrese una contraseña", "La contraseña solo puede tener 8 caracteres")  
+    &&  validaCampo(calle, jTCalle, regexcalle, "Ingrese su calle", "La calle excede de los 150 carcateres")  
+    &&  validaCampo(codigo_postal, jTCodigoPostal, regexcodigo_postal, "Ingrese si codigo postal", "El codigo posta solo pueden ser numero y tener 5 digitos en total")  
+    &&  validaCampo(numero_interior, jTNumeroInterior, regexnumero_interior, "Ingrese el numero interior", "Error en fromato o extension del numero interior ")  
+    &&  validaCampo(numero_exterior, jTNumeroExterior, regexnumero_exterior, "Ingrese el numero exterior", "Error en fromato o extension del numero exterior ")  
+    &&  validaCampo(numero_exterior, jTNumeroExterior, regexnumero_exterior, "Ingrese el numero exterior", "Error en fromato o extension del numero exterior ")  
+    &&  validaCampo(colonia, jTColonia, regexcolonia, "Ingrese su colonia", "La colonia solo puede tener un maximo de 100 caracteres ");
+            
+    }
         
         
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -505,6 +615,16 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTNombreActionPerformed
 
+    private void jTContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTContrasenaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -544,8 +664,10 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCBxEstado;
     private javax.swing.JComboBox<String> JCBxEstadoCivil;
     private javax.swing.JComboBox<String> JCBxNacionalidad;
+    private javax.swing.JComboBox<String> JCBxTipoCuenta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel20;
@@ -560,6 +682,9 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -568,9 +693,11 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JTextField jTCURP;
     private javax.swing.JTextField jTCalle;
     private javax.swing.JTextField jTCodigoPostal;
     private javax.swing.JTextField jTColonia;
+    private javax.swing.JTextField jTContrasena;
     private javax.swing.JTextField jTCorreo;
     private javax.swing.JTextField jTMaterno;
     private javax.swing.JTextField jTNombre;
