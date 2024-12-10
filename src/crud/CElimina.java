@@ -9,5 +9,5 @@ package crud;
  * @author HP
  */
 public class CElimina {
-    
+    //***Atributos**********
 }
