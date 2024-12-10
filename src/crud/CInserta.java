@@ -34,21 +34,18 @@ public class CInserta {
     return cnslt.inserta(consulta);
 }
     
-    public boolean insertaPrestamo(int salario, int gastos, int cantidad_prestamo, int plazo, int id_cuenta) throws SQLException {
-    consulta = "INSERT INTO prestamo (salario, gastos, cantidad_prestamo, plazo, id_cuenta) " +
-               "VALUES (" + salario + ", " + gastos + ", " + cantidad_prestamo + ", " + plazo + ", " + id_cuenta + ");";
-    return cnslt.inserta(consulta);
-}
+ 
     
     public boolean insertaBuro(int id_cuenta) throws SQLException {
     consulta = "INSERT INTO buro (id_cuenta) VALUES (" + id_cuenta + ");";
     return cnslt.inserta(consulta);
 }
 
-    
- 
-
-
-
+  
+public boolean insertaPrestamo(int salario, int gastos, int cantidad_prestamo, int plazo, double mensualidad, int id_cuenta) throws SQLException {
+    consulta = "INSERT INTO prestamo (salario, gastos, cantidad_prestamo, plazo, mensualidad, id_cuenta) " +
+               "VALUES (" + salario + ", " + gastos + ", " + cantidad_prestamo + ", " + plazo + ", " + mensualidad + ", " + id_cuenta + ");";
+    return cnslt.inserta(consulta);
+}
     
 }
