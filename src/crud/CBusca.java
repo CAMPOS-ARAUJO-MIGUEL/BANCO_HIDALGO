@@ -43,7 +43,24 @@ public class CBusca {
     consulta = "SELECT id_cuenta FROM cuenta WHERE curp = '" + curp + "';";  
     return cnslt.buscarValor(consulta);
 }
-      
+    public String buscaCuentaPorContraseña(String contraseña) throws SQLException {
+    consulta = "SELECT id_cuenta FROM cuenta WHERE contraseña = '" + contraseña + "';";  
+    return cnslt.buscarValor(consulta);
+}
+      public String buscaPersonaPorRfc(String rfc) throws SQLException {
+    consulta = "SELECT id_persona FROM persona WHERE rfc = '" + rfc + "';";  
+    return cnslt.buscarValor(consulta);
+}
+public String buscaPersonaPorCorreo(String correo) throws SQLException {
+    consulta = "SELECT id_persona FROM persona WHERE correo = '" + correo + "';";  
+    return cnslt.buscarValor(consulta);
+}
+
+public String buscaTelefonoPorNumero(String numero) throws SQLException {
+    consulta = "SELECT id_telefono FROM telefono WHERE numero = '" + numero + "';";  
+    return cnslt.buscarValor(consulta);
+}
+
          
              public String buscaEstado(String estado) throws SQLException {
     consulta = "SELECT id_estado \n" +
@@ -68,7 +85,7 @@ public class CBusca {
    
      
       
-      public int obtenerUltimoId() throws SQLException {
+      public int obtenerUltimoId() throws SQLException {//NO LA USE
     consulta = "SELECT LAST_INSERT_ID();";  // Esto obtiene el último id insertado de la sesión.
     return Integer.parseInt(cnslt.buscarValor(consulta));  // Devuelve el último id insertado.
 }
@@ -79,6 +96,21 @@ public class CBusca {
     "WHERE tipo_cuenta =  '" + tipoCuenta + "';";    
     return Integer.parseInt(cnslt.buscarValor(consulta));  // Devuelve el último id insertado.
 }
+     
+     
+     
+       public int ultimoIdDireccion() throws SQLException {
+    consulta = "SELECT MAX(id_direccion) \n" +
+               "FROM direccion;";  // Esto obtiene el último id insertado de la sesión.
+    return Integer.parseInt(cnslt.buscarValor(consulta));  // Devuelve el último id insertado.
+}
+       
+          public int ultimoIdPersona() throws SQLException {
+    consulta = "SELECT MAX(id_persona)  \n" +
+               "FROM persona;";  // Esto obtiene el último id insertado de la sesión.
+    return Integer.parseInt(cnslt.buscarValor(consulta));  // Devuelve el último id insertado.
+}
+    
     
     
 }
