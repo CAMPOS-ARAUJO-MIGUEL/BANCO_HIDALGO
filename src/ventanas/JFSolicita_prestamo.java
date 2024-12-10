@@ -70,6 +70,11 @@ public class JFSolicita_prestamo extends javax.swing.JFrame {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
 
         JbtnEnviar.setBackground(new java.awt.Color(160, 16, 70));
         JbtnEnviar.setForeground(new java.awt.Color(255, 255, 255));
@@ -246,6 +251,10 @@ public class JFSolicita_prestamo extends javax.swing.JFrame {
     // Opcional: Cerrar o esconder la ventana actual
     this.dispose(); // Esto cierra la ventana actual, quítalo si no deseas cerrar esta ventana.
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
 
     /**
      * @param args the command line arguments
