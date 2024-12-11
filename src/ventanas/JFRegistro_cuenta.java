@@ -601,10 +601,13 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     
     
     public boolean verificaExisteCURP(String curp){
-        
+        System.out.println("Verificando CURP: " + curp);  // Verifica el CURP que se pasa a la consulta
+        String resultado;
+        // Crear un nuevo objeto CBusca cada vez que se ejecute la función
+        CBusca queryBusca1 = new CBusca();  
         try {
             
-         String resultado= queryBusca1.buscaCuenta2(curp);
+         resultado= queryBusca1.buscaCuenta2(curp);
          
             if (resultado==null) {
                 
@@ -627,7 +630,7 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
        public boolean verificaExisteRFC(String rfc){
         
         try {
-            
+           CBusca queryBusca8 = new CBusca();   
          String resultado= queryBusca8.buscaPersonaPorRfc(rfc);
          
             if (resultado==null) {
@@ -651,7 +654,7 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
        public boolean verificaExisteCorreo(String correo){
         
         try {
-            
+           CBusca queryBusca9 = new CBusca();   
          String resultado= queryBusca9.buscaPersonaPorCorreo(correo);
          
             if (resultado==null) {
@@ -675,8 +678,8 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
        public boolean verificaExisteTelefono(String telefono){
         
         try {
-            
-         String resultado= queryBusca10.buscaTelefonoPorNumero(numero);
+         CBusca queryBusca10 = new CBusca();  
+         String resultado= queryBusca10.buscaTelefonoPorNumero(telefono);
          
             if (resultado==null) {
                 
@@ -698,8 +701,8 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
          public boolean verificaExisteContrasena(String contrasena){
         
         try {
-            
-         String resultado= queryBusca11.buscaContrasena(contrasena);
+         CBusca queryBusca17 = new CBusca();    
+         String resultado= queryBusca17.buscaContrasena(contrasena);
          
             if (resultado==null) {
                 
@@ -859,30 +862,38 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        try {
-            asignaValores();
+        
+        
+        if (validaCampos()) {
             
-            if (verificaExisteCURP(curp)) {
+             try {
+         
+            String nuevoCURP = jTCURP.getText();  // Obtener el nuevo CURP ingresado por el usuario
+                System.out.println("Nuevo CURP capturado: " + nuevoCURP);  // Depuración: Verifica el CURP ingresado 
+            if (verificaExisteCURP(nuevoCURP)) {
                 CUtilitarios.msg_adver("El CURP ya esta registrado cambielo ", "Registro curp");
             }else{
             
-                if (verificaExisteContrasena(contrasena)) {
+                if (verificaExisteContrasena(jTContrasena.getText())) {
                      CUtilitarios.msg_adver("La contraseña ya esta registrada cambiela ", "Registro contraseña");
                 }else{
                     
-                    if (verificaExisteCorreo(correo)) {
+                    if (verificaExisteCorreo(jTCorreo.getText())) {
                         CUtilitarios.msg_adver("El correo ya esta registrado cambielo ", "Registro correo"); 
                     }else{
                         
-                        if (verificaExisteRFC(rfc)) {
+                        if (verificaExisteRFC(jTRfc.getText())) {
                              CUtilitarios.msg_adver("El RFC ya esta registrado cambielo ", "Registro RFC"); 
                         }else{
                             
-                            if (verificaExisteTelefono(numero)) {
+                            if (verificaExisteTelefono(jTTelefono.getText())) {
                                 CUtilitarios.msg_adver("El numero telefonico ya esta registrado cambielo ", "Registro Telefono"); 
                             }else{
+                            asignaValores();
                             insertaDatos(numero, curp, contrasena, tipoCuenta);
                              CUtilitarios.msg("Se ha creado con exito su cuenta", "Registro cuenta"); 
+                             limpiarCampos();
+                             
                             }
                         }
                     
@@ -899,6 +910,13 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
              CUtilitarios.msg_adver("Erro al enviar los datos", "encio datos"); 
             System.out.println("NO SE INSERTARON DATOS");
         }
+            
+        }else{
+        
+        
+        
+        }
+          
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
