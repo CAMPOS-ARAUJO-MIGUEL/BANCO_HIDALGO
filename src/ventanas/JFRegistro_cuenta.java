@@ -4,11 +4,48 @@
  */
 package ventanas;
 
+import crud.CBusca;
+import crud.CInserta;
+import javax.swing.JTextField;
+import utilitarios.CUtilitarios;
+
 /**
  *
  * @author HP
  */
 public class JFRegistro_cuenta extends javax.swing.JFrame {
+    
+      private final CBusca queryBusca1 = new CBusca();
+      private final CBusca queryBusca2 = new CBusca();
+      private final CBusca queryBusca3 = new CBusca();
+      private final CBusca queryBusca4 = new CBusca();
+      private final CBusca queryBusca5 = new CBusca();
+      private final CBusca queryBusca6 = new CBusca();
+      private final CBusca queryBusca7 = new CBusca();
+      private final CBusca queryBusca8 = new CBusca();
+      private final CBusca queryBusca9 = new CBusca();
+      private final CBusca queryBusca10 = new CBusca();
+      private final CBusca queryBusca11 = new CBusca();
+      
+      private final CInserta queryInserta1= new CInserta();
+      private final CInserta queryInserta2= new CInserta();
+      private final CInserta queryInserta3= new CInserta();
+      private final CInserta queryInserta4= new CInserta();
+      private final CInserta queryInserta5= new CInserta();
+    
+     private String regexnombre="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
+     private String regexapellido_paterno="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
+     private String regexapellido_materno="^[A-Za-záéíóúÁÉÍÓÚÑñ]{1,30}$";
+     private String regexrfc="^[A-Za-z0-9]{1,18}$";
+     private String regexnumero="^[0-9]{1,10}$";
+     private String regexcorreo="^[a-zA-Z0-9._%+-]{1,30}@gmail\\.com$";
+     private String regexcurp="^[A-Z]{4}\\d{6}[A-Z]{6}\\w{2}$";
+     private String regexcontrasena="^[\\S]{1,8}$";
+     private String regexcalle="^.{1,150}$";
+     private String regexcodigo_postal="^\\d{5}$";
+     private String regexnumero_interior="^\\d{1,5}$";
+     private String regexnumero_exterior="^\\d{1,5}$";
+     private String regexcolonia="^[A-Za-z0-9áéíóúÁÉÍÓÚüÜñÑ\\s]{1,100}$";
 
      private String nombre;
      private String apellido_paterno;
@@ -18,6 +55,9 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
      private String nacionalidad;
      private String numero;
      private String correo;
+     private String curp;
+     private String contrasena;
+     private String tipoCuenta;
      private String calle;
      private String codigo_postal;
      private String numero_interior;
@@ -77,8 +117,15 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         jTCorreo = new javax.swing.JTextField();
         JCBxNacionalidad = new javax.swing.JComboBox<>();
         JCBxEstadoCivil = new javax.swing.JComboBox<>();
+        jLabel63 = new javax.swing.JLabel();
+        jTCURP = new javax.swing.JTextField();
+        jLabel64 = new javax.swing.JLabel();
+        jTContrasena = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
+        JCBxTipoCuenta = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,14 +161,6 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel11.setText("Estado:");
 
-        jTNumeroExterior.setText("jTextField13");
-
-        jTNumeroInterior.setText("jTextField14");
-
-        jTCalle.setText("jTextField11");
-
-        jTCodigoPostal.setText("jTextField12");
-
         jLabel20.setText("Numero exterior:");
 
         JCBxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua", "Coahuila", "Colima", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "Estado de México", "Michoacán", "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas", "Ciudad de México", " " }));
@@ -133,7 +172,6 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel21.setText("Colonia");
 
-        jTColonia.setText("jTextField12");
         jTColonia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTColoniaActionPerformed(evt);
@@ -149,36 +187,36 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(232, 232, 232)
                         .addComponent(jLabel6))
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addComponent(jLabel9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTNumeroInterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel11)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(JCBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel21)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTColonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                            .addGap(194, 194, 194)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTNumeroInterior, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addGap(18, 18, 18)
-                            .addComponent(jTCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(35, 35, 35)
-                            .addComponent(jLabel20)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTNumeroExterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel11))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jTCodigoPostal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTNumeroExterior, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(JCBxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel21)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTColonia, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(20, 20, 20))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,7 +246,6 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel52.setText("Nombre(s):");
 
-        jTNombre.setText("jTextField1");
         jTNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTNombreActionPerformed(evt);
@@ -217,15 +254,10 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         jLabel53.setText("Apellido Paterno:");
 
-        jTPaterno.setText("jTextField2");
-
         jLabel54.setText("Apellido Materno:");
-
-        jTMaterno.setText("jTextField3");
 
         jLabel55.setText("RFC:");
 
-        jTRfc.setText("jTextField4");
         jTRfc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTRfcActionPerformed(evt);
@@ -243,14 +275,12 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel62.setText("Datos de Identidad");
 
-        jTTelefono.setText("jTextField9");
         jTTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTTelefonoActionPerformed(evt);
             }
         });
 
-        jTCorreo.setText("jTextField10");
         jTCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTCorreoActionPerformed(evt);
@@ -261,54 +291,85 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
 
         JCBxEstadoCivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero", "Casado", "Divorciado", "Viudo", "Unión libre", "Separado", "Conviviente", "Comprometido", " " }));
 
+        jLabel63.setText("CURP");
+
+        jLabel64.setText("Contraseña de la cuenta ");
+
+        jTContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTContrasenaActionPerformed(evt);
+            }
+        });
+
+        jLabel65.setText("Tipo de cuenta");
+
+        JCBxTipoCuenta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crédito", "Débito" }));
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(232, 232, 232)
+                .addComponent(jLabel62)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel61)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel60)
+                        .addGap(35, 35, 35)
+                        .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel52)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel55)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTRfc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jTRfc, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel52)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel56)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(JCBxEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel58)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JCBxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(88, 88, 88))
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel54)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel53)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTPaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel58)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(JCBxNacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54))))
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel61)
+                        .addComponent(jLabel63)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTCURP, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(127, 127, 127)
-                        .addComponent(jLabel60)
-                        .addGap(35, 35, 35)
-                        .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(232, 232, 232)
-                .addComponent(jLabel62)
-                .addContainerGap(254, Short.MAX_VALUE))
+                        .addComponent(jLabel64)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTContrasena)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel65)
+                        .addGap(18, 18, 18)
+                        .addComponent(JCBxTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86))))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +398,15 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                     .addComponent(jTCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel60))
-                .addGap(58, 58, 58))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel63)
+                    .addComponent(jTCURP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel64)
+                    .addComponent(jTContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel65)
+                    .addComponent(JCBxTipoCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21))
         );
 
         jButton1.setText("Regresar");
@@ -354,26 +423,35 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("CREAR CUENTA");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
                                 .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton2)
-                                .addGap(154, 154, 154))
-                            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(41, Short.MAX_VALUE))
+                                .addGap(275, 275, 275)
+                                .addComponent(jButton3)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,18 +462,23 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2))
+                    .addComponent(jButton3))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,10 +491,7 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,6 +514,9 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         nacionalidad = (String)JCBxNacionalidad.getSelectedItem(); 
         numero= jTTelefono.getText();
         correo= jTCorreo.getText();
+        curp= jTCURP.getText();
+        contrasena= jTContrasena.getText();
+        tipoCuenta = (String)JCBxTipoCuenta.getSelectedItem(); 
         calle= jTCalle.getText();
         codigo_postal= jTCodigoPostal.getText();
         numero_interior= jTNumeroInterior.getText();
@@ -451,6 +534,8 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     JCBxNacionalidad.setSelectedIndex(0); // Selecciona el primer elemento del ComboBox
     jTTelefono.setText("");
     jTCorreo.setText("");
+    jTCURP.setText("");
+    jTContrasena.setText("");
     jTCalle.setText("");
     jTCodigoPostal.setText("");
     jTNumeroInterior.setText("");
@@ -464,7 +549,273 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     // Obtener los valores de los campos de texto
    
 }
+     
+     
+        public String devuelveCadena(JTextField campo, String regex) {
+        String cadena = null;
+        cadena = campo.getText();
+        if (cadena.isEmpty()) {
+            cadena = null;
+        } else if (cadena.matches(regex)) {
+            return cadena;
+        } else {
+            cadena = "NoValido";
+        }
+        return cadena;
+    }
         
+        
+        
+        public boolean validaCampo(String campoTexto, JTextField campo, String regex, String mensajeVacio, String mensajeInvalido) {
+        boolean valida = true;
+        campoTexto = devuelveCadena(campo, regex);
+        if (campoTexto == null) {
+            CUtilitarios.msg_adver(mensajeVacio, "Registro terminal");
+            valida = false;
+        } else if (campoTexto.equals("NoValido")) {
+            CUtilitarios.msg_error(mensajeInvalido, "Registro terminal");
+            valida = false;
+        } else {
+            valida = true;
+        }
+        return valida;
+    }
+        
+    public boolean validaCampos() {
+    return validaCampo(nombre, jTNombre, regexnombre, "Ingrese sus nombres", "El nombre excede a mas de 30 caracteres")
+    &&  validaCampo(apellido_paterno, jTPaterno, regexapellido_paterno, "Ingrese su apellido paterno", "El apellido paterno excede a mas de 30 carcateres")
+    &&  validaCampo(apellido_materno, jTMaterno, regexapellido_materno, "Ingrese su apellido materno", "El apellido materno excede a mas de 30 carcateres")
+    &&  validaCampo(rfc, jTRfc, regexrfc, "Ingrese su RFC", "Es invalido el RFC por su extención o por el formato")
+    &&  validaCampo(numero, jTTelefono, regexnumero, "Ingrese un numero telefonico", "El numero solo puede agregar letras y un maximo de 10 digitos")  
+    &&  validaCampo(correo, jTCorreo, regexcorreo, "Ingrese su correo electronico", "El formato o la extencion del correo son incorrectos")  
+    &&  validaCampo(curp, jTCURP, regexcurp, "Ingrese su CURP", "El formato o la extencion del CURP son incorrectos")  
+    &&  validaCampo(contrasena, jTContrasena, regexcontrasena, "Ingrese una contraseña", "La contraseña solo puede tener 8 caracteres")  
+    &&  validaCampo(calle, jTCalle, regexcalle, "Ingrese su calle", "La calle excede de los 150 carcateres")  
+    &&  validaCampo(codigo_postal, jTCodigoPostal, regexcodigo_postal, "Ingrese si codigo postal", "El codigo posta solo pueden ser numero y tener 5 digitos en total")  
+    &&  validaCampo(numero_interior, jTNumeroInterior, regexnumero_interior, "Ingrese el numero interior", "Error en fromato o extension del numero interior ")  
+    &&  validaCampo(numero_exterior, jTNumeroExterior, regexnumero_exterior, "Ingrese el numero exterior", "Error en fromato o extension del numero exterior ")  
+    &&  validaCampo(numero_exterior, jTNumeroExterior, regexnumero_exterior, "Ingrese el numero exterior", "Error en fromato o extension del numero exterior ")  
+    &&  validaCampo(colonia, jTColonia, regexcolonia, "Ingrese su colonia", "La colonia solo puede tener un maximo de 100 caracteres ");
+            
+    }
+    
+    
+    public boolean verificaExisteCURP(String curp){
+        System.out.println("Verificando CURP: " + curp);  // Verifica el CURP que se pasa a la consulta
+        String resultado;
+        // Crear un nuevo objeto CBusca cada vez que se ejecute la función
+        CBusca queryBusca1 = new CBusca();  
+        try {
+            
+         resultado= queryBusca1.buscaCuenta2(curp);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un en el curp. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+    
+    
+       public boolean verificaExisteRFC(String rfc){
+        
+        try {
+           CBusca queryBusca8 = new CBusca();   
+         String resultado= queryBusca8.buscaPersonaPorRfc(rfc);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en el rfc. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+       
+       
+       public boolean verificaExisteCorreo(String correo){
+        
+        try {
+           CBusca queryBusca9 = new CBusca();   
+         String resultado= queryBusca9.buscaPersonaPorCorreo(correo);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en el correo. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+       
+            
+       public boolean verificaExisteTelefono(String telefono){
+        
+        try {
+         CBusca queryBusca10 = new CBusca();  
+         String resultado= queryBusca10.buscaTelefonoPorNumero(telefono);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en el numero. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+       
+         public boolean verificaExisteContrasena(String contrasena){
+        
+        try {
+         CBusca queryBusca17 = new CBusca();    
+         String resultado= queryBusca17.buscaContrasena(contrasena);
+         
+            if (resultado==null) {
+                
+            return false;
+                
+            }else{
+            return true;
+            }
+            
+            
+         } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema en la contraseña. Por favor intente nuevamente.", "Error de conexión");
+        return false;  // Retornamos false en caso de error
+    }
+    }
+        
+    
+    
+    
+    public int insertaDireccion(String codigo_postal, String colonia, String num_interior, String num_exterior, String calle, String estado){ 
+       
+        int ultimoID;
+        try {
+             String idEstado=queryBusca2.buscaEstado(estado);  
+             int id_estado=Integer.parseInt(idEstado);
+             queryInserta1.insertaDireccion(codigo_postal, colonia, num_interior, num_exterior, calle, id_estado);
+             // ultimoID=queryBusca5.obtenerUltimoId();
+              ultimoID=queryBusca5.ultimoIdDireccion();
+            // return ultimoID;
+        } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("problema al insertar direccion. Por favor intente nuevamente.", "direccion");
+         return 0;
+    }
+    return ultimoID;
+    
+   }
+    
+     // public void insertaPersona(String nombre, String apellido_paterno, String apellido_materno, String rfc, String correo, String estadoCivil,int  id_direccion,String nacionalidad){ 
+      public int insertaPersona(String nombre, String apellido_paterno, String apellido_materno, String rfc, String correo, String estadoCivil,String nacionalidad){ 
+       
+           int id_direccion;
+           int ultimoID=0;
+        try {
+            
+           id_direccion=insertaDireccion(codigo_postal, colonia, numero_interior, numero_exterior, calle, estado);
+           
+            if (id_direccion==0) {//si el ultimo id es 0
+                System.out.println("id ultimo direccion:"+id_direccion);
+            }else{
+            
+             System.out.println("direccion id ultimo:"+id_direccion);
+             String idNacionalidad=queryBusca3.buscaNacionalidad(nacionalidad);  
+             int id_nacionalidad=Integer.parseInt(idNacionalidad);
+             
+             String idCivil=queryBusca4.buscaCivil(estadoCivil);
+             int id_civil=Integer.parseInt(idCivil);
+             
+                try {
+                     queryInserta2.insertaPersona1(nombre, apellido_paterno, apellido_materno, rfc, correo, id_civil, id_direccion, id_nacionalidad);
+                } catch (Exception e) {
+                    System.out.println("no se inserto persona por problamas");
+                }
+           
+            //ultimoID=queryBusca6.obtenerUltimoId();
+            
+            
+            ultimoID=queryBusca6.ultimoIdPersona();
+            System.out.println("PERSONA id ultimo:"+ultimoID);
+            }
+            
+     
+             
+        } catch (Exception e) {
+        // Registrar el error o manejarlo de alguna forma
+      //  e.printStackTrace();  // Esto imprimirá el stack trace para ayudar en el diagnóstico del error.
+        CUtilitarios.msg_error("Hubo un problema al cargar a la persona. Por favor intente nuevamente.", "Error de conexión");
+        return 0;
+    }
+   
+    return ultimoID;
+   }
+      
+      
+      public void insertaDatos(String numero,String curp, String contraseña, String id_tipo_cuenta){
+          
+      
+      
+          try {
+          int id_persona;
+           int id_tipocuenta=0;
+          id_persona=insertaPersona(nombre, apellido_paterno, apellido_materno, rfc, correo, estadoCivil, nacionalidad);
+          
+          if (id_persona==0) {
+               System.out.println("persona id ultimo:"+id_persona);
+              
+          }else{
+              id_tipocuenta=queryBusca7.buscaTipoCuenta(id_tipo_cuenta);
+              
+              
+              
+              queryInserta4.insertaTelefono(numero, id_persona);
+              queryInserta5.insertaCuenta(curp, contraseña, id_persona, id_tipocuenta);
+              
+          
+          }
+              
+          } catch (Exception e) {System.out.println("erorrrrrrrr");
+          }
+      }
         
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     // Cerrar la ventana actual (si es necesario)
@@ -505,6 +856,70 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTNombreActionPerformed
 
+    private void jTContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTContrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTContrasenaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        if (validaCampos()) {
+            
+             try {
+         
+            String nuevoCURP = jTCURP.getText();  // Obtener el nuevo CURP ingresado por el usuario
+                System.out.println("Nuevo CURP capturado: " + nuevoCURP);  // Depuración: Verifica el CURP ingresado 
+            if (verificaExisteCURP(nuevoCURP)) {
+                CUtilitarios.msg_adver("El CURP ya esta registrado cambielo ", "Registro curp");
+            }else{
+            
+                if (verificaExisteContrasena(jTContrasena.getText())) {
+                     CUtilitarios.msg_adver("La contraseña ya esta registrada cambiela ", "Registro contraseña");
+                }else{
+                    
+                    if (verificaExisteCorreo(jTCorreo.getText())) {
+                        CUtilitarios.msg_adver("El correo ya esta registrado cambielo ", "Registro correo"); 
+                    }else{
+                        
+                        if (verificaExisteRFC(jTRfc.getText())) {
+                             CUtilitarios.msg_adver("El RFC ya esta registrado cambielo ", "Registro RFC"); 
+                        }else{
+                            
+                            if (verificaExisteTelefono(jTTelefono.getText())) {
+                                CUtilitarios.msg_adver("El numero telefonico ya esta registrado cambielo ", "Registro Telefono"); 
+                            }else{
+                            asignaValores();
+                            insertaDatos(numero, curp, contrasena, tipoCuenta);
+                             CUtilitarios.msg("Se ha creado con exito su cuenta", "Registro cuenta"); 
+                             limpiarCampos();
+                             
+                            }
+                        }
+                    
+                    }
+                
+                }
+            
+            }
+            
+            
+            
+            
+        } catch (Exception e) {
+             CUtilitarios.msg_adver("Erro al enviar los datos", "encio datos"); 
+            System.out.println("NO SE INSERTARON DATOS");
+        }
+            
+        }else{
+        
+        
+        
+        }
+          
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -544,8 +959,10 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCBxEstado;
     private javax.swing.JComboBox<String> JCBxEstadoCivil;
     private javax.swing.JComboBox<String> JCBxNacionalidad;
+    private javax.swing.JComboBox<String> JCBxTipoCuenta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel20;
@@ -560,6 +977,9 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -568,9 +988,11 @@ public class JFRegistro_cuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JTextField jTCURP;
     private javax.swing.JTextField jTCalle;
     private javax.swing.JTextField jTCodigoPostal;
     private javax.swing.JTextField jTColonia;
+    private javax.swing.JTextField jTContrasena;
     private javax.swing.JTextField jTCorreo;
     private javax.swing.JTextField jTMaterno;
     private javax.swing.JTextField jTNombre;
