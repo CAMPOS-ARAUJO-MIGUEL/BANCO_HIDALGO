@@ -1,4 +1,3 @@
-
 package crud;
 
 import Conector.CConector;
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 import utilitarios.CUtilitarios;
 
 public class CConsultas {
-    
+
     //************ Atributos ************
     private Connection conn = null;
     private Statement stmt = null; //Capacidad para traducir las query
@@ -55,7 +54,7 @@ public class CConsultas {
         }
         return valorObtenido;
     }
-    
+
     public ArrayList<String> buscarValoresCombos(String consulta) throws SQLException {
         //1. Abrir la conexion
         conn = conector.conectar();
@@ -75,7 +74,7 @@ public class CConsultas {
             String cadena = "SQLException: " + ex.getMessage() + "\n"
                     + "SQLState: " + ex.getSQLState() + "\n"
                     + "VendorError: " + ex.getErrorCode();
-              CUtilitarios.msg_error(cadena, "Conexion");
+            CUtilitarios.msg_error(cadena, "Conexion");
         } //3. 
         finally {
             //Cerrar los resultados
@@ -93,7 +92,7 @@ public class CConsultas {
         }
         return resultadosCombos;
     }
-    
+
     public ArrayList<String[]> buscarValores(String consulta, int numCampos) throws SQLException {
         //1. Abrir la conexion
         conn = conector.conectar();
@@ -135,7 +134,7 @@ public class CConsultas {
         }
         return resultados;
     }
-    
+
     public boolean inserta(String consulta) throws SQLException {
         //1. Abrir la conexion
         conn = conector.conectar();
@@ -146,15 +145,15 @@ public class CConsultas {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-          
-              CUtilitarios.msg_error("Error: \n" + e.getMessage(), "Inserta ");
+
+            CUtilitarios.msg_error("Error: \n" + e.getMessage(), "Inserta ");
         } finally {
             //3. Cerrar conex
             conector.cerrar_conexion(conn);
         }
         return false;
     }
-    
+
     public boolean elimina(String consulta) throws SQLException {
         //1. Abrir la conexion
         conn = conector.conectar();
@@ -164,14 +163,14 @@ public class CConsultas {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-           CUtilitarios.msg_error("Error: " + e.getMessage(), "Elimina");
+            CUtilitarios.msg_error("Error: " + e.getMessage(), "Elimina");
         } finally {
             //3. Cerrarla conexion
             conector.cerrar_conexion(conn);
         }
         return false;
     }
-    
+
     public boolean actualiza(String consulta) throws SQLException {
         conn = conector.conectar();
         try {
@@ -179,14 +178,14 @@ public class CConsultas {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-             CUtilitarios.msg_error("Error: " + e.getMessage(), "Actualiza Objeto");
+            CUtilitarios.msg_error("Error: " + e.getMessage(), "Actualiza Objeto");
         } finally {
             //3. Cerrarla conexion
             conector.cerrar_conexion(conn);
         }
         return false;
     }
-    
+
     public boolean buscar(String consulta) throws SQLException {
         conn = conector.conectar();
         try {
@@ -203,14 +202,195 @@ public class CConsultas {
                     }
                 }
             }
-            
+
         } catch (SQLException e) {
-              CUtilitarios.msg_error("Error: " + e.getMessage(), "Buscar objeto");
+            CUtilitarios.msg_error("Error: " + e.getMessage(), "Buscar objeto");
         } finally {
             //3. Cerrarla conexion
             conector.cerrar_conexion(conn);
         }
         return false;
+    }
+
+    public boolean actualiza_objeto(String consulta) throws SQLException {
+        conn = conector.conectar();
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(consulta);
+            pstmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            CUtilitarios.msg_error("Error: " + e.getMessage(), "actualiza objeto");
+        } finally {
+            conector.cerrar_conexion(conn);
+        }
+        return false;
+    }
+
+    public ArrayList<String[]> buscar_objetos(String consulta) throws SQLException {
+        //1. Abrir la conexion 
+        conn = conector.conectar();
+        //2. Ejecutar la query(consulta)
+        try {
+            resultados = new ArrayList<>();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(consulta);
+            if (rs == null) {
+                CUtilitarios.msg_adver("Elementos no encontrados", "Buscar objeto");
+            } else {
+                while (rs.next()) {
+                    resultados.add(new String[]{
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9)
+                    });
+                }
+            }
+        } catch (SQLException ex) {
+            String cadena = "SQLException: " + ex.getMessage() + "\n"
+                    + "SQLState: " + ex.getSQLState() + "\n"
+                    + "VendorError: " + ex.getErrorCode();
+            CUtilitarios.msg_error(cadena, "conexion");
+        } finally {
+            //CERRAR RESULTADOS
+            try {
+                rs.close();
+            } catch (SQLException e) {
+            }
+            //cerrar statement
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+            }
+            //cerrar conexion
+            conector.cerrar_conexion(conn);
+        }
+        return resultados;
+    }
+
+    public ArrayList<String[]> buscar_civil(String consulta) throws SQLException {
+        //1. Abrir la conexion 
+        conn = conector.conectar();
+        //2. Ejecutar la query(consulta)
+        try {
+            resultados = new ArrayList<>();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(consulta);
+            if (rs == null) {
+                CUtilitarios.msg_adver("Elementos no encontrados", "Buscar objeto");
+            } else {
+                while (rs.next()) {
+                    resultados.add(new String[]{
+                        rs.getString(1),
+                        rs.getString(2)
+                    });
+                }
+            }
+        } catch (SQLException ex) {
+            String cadena = "SQLException: " + ex.getMessage() + "\n"
+                    + "SQLState: " + ex.getSQLState() + "\n"
+                    + "VendorError: " + ex.getErrorCode();
+            CUtilitarios.msg_error(cadena, "conexion");
+        } finally {
+            //CERRAR RESULTADOS
+            try {
+                rs.close();
+            } catch (SQLException e) {
+            }
+            //cerrar statement
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+            }
+            //cerrar conexion
+            conector.cerrar_conexion(conn);
+        }
+        return resultados;
+    }
+
+    public ArrayList<String[]> buscar_direccion(String consulta) throws SQLException {
+        //1. Abrir la conexion 
+        conn = conector.conectar();
+        //2. Ejecutar la query(consulta)
+        try {
+            resultados = new ArrayList<>();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(consulta);
+            if (rs == null) {
+                CUtilitarios.msg_adver("Elementos no encontrados", "Buscar objeto");
+            } else {
+                while (rs.next()) {
+                    resultados.add(new String[]{
+                        rs.getString(1),
+                        rs.getString(2)
+                    });
+                }
+            }
+        } catch (SQLException ex) {
+            String cadena = "SQLException: " + ex.getMessage() + "\n"
+                    + "SQLState: " + ex.getSQLState() + "\n"
+                    + "VendorError: " + ex.getErrorCode();
+            CUtilitarios.msg_error(cadena, "conexion");
+        } finally {
+            //CERRAR RESULTADOS
+            try {
+                rs.close();
+            } catch (SQLException e) {
+            }
+            //cerrar statement
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+            }
+            //cerrar conexion
+            conector.cerrar_conexion(conn);
+        }
+        return resultados;
+    }
+
+    public ArrayList<String[]> buscar_nacionalidad(String consulta) throws SQLException {
+        //1. Abrir la conexion 
+        conn = conector.conectar();
+        //2. Ejecutar la query(consulta)
+        try {
+            resultados = new ArrayList<>();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(consulta);
+            if (rs == null) {
+                CUtilitarios.msg_adver("Elementos no encontrados", "Buscar objeto");
+            } else {
+                while (rs.next()) {
+                    resultados.add(new String[]{
+                        rs.getString(1),
+                        rs.getString(2)
+                    });
+                }
+            }
+        } catch (SQLException ex) {
+            String cadena = "SQLException: " + ex.getMessage() + "\n"
+                    + "SQLState: " + ex.getSQLState() + "\n"
+                    + "VendorError: " + ex.getErrorCode();
+            CUtilitarios.msg_error(cadena, "conexion");
+        } finally {
+            //CERRAR RESULTADOS
+            try {
+                rs.close();
+            } catch (SQLException e) {
+            }
+            //cerrar statement
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+            }
+            //cerrar conexion
+            conector.cerrar_conexion(conn);
+        }
+        return resultados;
     }
 
 }
