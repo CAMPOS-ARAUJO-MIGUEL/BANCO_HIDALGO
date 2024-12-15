@@ -7,6 +7,7 @@ package crud;
 import java.sql.SQLException;
 
 
+
 public class CBusca {
     
     private final CConsultas cnslt = new CConsultas();
@@ -23,11 +24,20 @@ public class CBusca {
     return cnslt.buscarValor(consulta);
 }
      
+         
+  
+     
     public String buscaCURP(String curp) throws SQLException {
     consulta = "SELECT id_cuenta FROM cuenta WHERE curp ='" + curp + "';";
     return cnslt.buscarValor(consulta);
 }
     
+    public String busca_objeto_model(String curp) throws SQLException {
+    consulta = "SELECT id_cuenta FROM cuenta WHERE curp ='" + curp + "';";
+    return cnslt.buscarValor(consulta);
+     
+} 
+  
       public String buscaContrasena(String contrasena) throws SQLException {//no la use
     consulta = "SELECT id_cuenta FROM cuenta WHERE curp ='" + contrasena + "';";
     return cnslt.buscarValor(consulta);
